@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Platform {
++Map<Country, Set<Product>> sup
++getCountry(List<String> l)
++List<Country> country_list()
++Country getKey(Map<Country, Set<Product>> sup, Product p)
++numMinPaisesComQuantidadeProdSuperiorQ(int V)
++numMaxAnosConsecutivosCrescimentoFrutoF(String i)
++nMaxAnosConsecutivosCrescimentoFrutoFnoPaisX(Map<Year, Value> list)
++diferenceMaximaDasQuantidades(Country country)
+}
+
+class Country {
+-areaCode
+-String area
++Country(int areaCode, String area)
+}
+
+class Product {
+-Year year
+-Value value
+-Item item
++Product(Year year, Value value, Item item)
++getYear()
++getValue()
++getItem()
++setYear(Year year)
++setValue(Value value)
++setItem(Item item)
+}
+
+class Product_comparator {
++compare(Product p1, Product p2)
+}
+
+class Item{
+-int itemCode;
+-String item;
++Item(int itemCode, String item)
+}
+
+class Value{
+-String unit
+-int value
++Value(int unit, int value)
+}
+
+class SortByValue{
++compare(Value a, Value b)
+}
+
+class Year{
+-int yearCode
+-int year
++Year(int yearCode, int year)
+}
+
+Value ..> Product
+Year ..>Product
+Item ..> Product
+Country ..> Platform
+Product ..> Platform
+SortByValue ..> Value
+Product_comparator ..> Product
+
+
+@enduml
